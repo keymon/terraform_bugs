@@ -1,17 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 v="$(date +%s)"
 cat <<EOF
 {
 "container_env": {
-    "VAL1": "val1-$v",
-    "VAL2": "val2-$v",
-    "VAL3": "val3-$v",
-    "VAL4": "val4-$v",
-    "VAL5": "val5-$v",
-    "VAL6": "val6-$v",
-    "VAL7": "val7-$v",
-    "VAL8": "val8-$v",
-    "VAL9": "val9-$v"
+EOF
+for i in $(seq 1 ${1:-10}); do
+    cat <<EOF
+	"VAL${i}": "val${i}-$v",
+EOF
+done
+cat <<EOF
+	"FINAL": "final"
 }
 }
 EOF
