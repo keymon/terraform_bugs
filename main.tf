@@ -17,7 +17,6 @@ resource "null_resource" "some_resource" {
   }
 }
 
-
 variable "container_env" {
   type        = "map"
 
