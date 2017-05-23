@@ -1,8 +1,8 @@
 module "some_module" {
     source = "./some_module"
-    container_env = "${
+    a_hash_map = "${
         merge(
-            var.container_env,
+            var.hash_map_vars,
             map(
                 "CONSUMED_VALUE", null_resource.some_resource.triggers.foo,
             )
@@ -17,13 +17,17 @@ resource "null_resource" "some_resource" {
   }
 }
 
-variable "container_env" {
-  type        = "map"
+variable "hash_map_vars" {
+  type = "map"
 
 }
 
-output "rendered" {
-  value="${module.some_module.rendered}"
+output "null_resource_values" {
+  value="${module.some_module.null_resource_values}"
+}
+
+output "template_rendered" {
+  value="${module.some_module.template_rendered}"
 }
 
 

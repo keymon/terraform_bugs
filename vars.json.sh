@@ -2,7 +2,7 @@
 v="$(date +%s)"
 cat <<EOF
 {
-	"container_env": {
+	"hash_map_vars": {
 		"AAAA": "${v}",
 		"BBBB": "fixed_value"
 	}
