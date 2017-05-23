@@ -243,9 +243,9 @@ template_rendered = Computed Value: 1495552663
 
 ### Important Factoids
 
-**IMPORTANT** This only happens if the **FIRST** value in alphabetic order of the keys (`AAAA`) changes. If the value is constant, or if there is any other value that is constant, it won't happen.
+ * **IMPORTANT** This only happens if the **FIRST** value in alphabetic order of the keys (`AAAA`) changes. If the value is constant, or if there is any other value that is constant, it won't happen.
 
-You can try with this alternative input:
+  You can try with this alternative input:
 
 ```bash
 #!/bin/bash
@@ -263,6 +263,12 @@ EOF
 
 ```
 
+ * If you add additional functions in the middle, more fun stuff can happen. I left that as an exercise for the person working on the bug. Examples, add a `upper()` function to the null resource:
+
+
+### Workaround
+
+Use latest version and `depends_on` everywhere.
 
 ### Related
 

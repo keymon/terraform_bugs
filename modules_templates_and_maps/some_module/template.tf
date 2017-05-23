@@ -15,11 +15,11 @@ resource "null_resource" "some_resource_consuming_the_map" {
 }
 
 output "some_resource_consuming_the_map" {
-  value="${join (", ",  null_resource.some_resource_consuming_the_map.*.triggers.entries)}"
+  value="${join(", ",  null_resource.some_resource_consuming_the_map.*.triggers.entries)}"
 }
 
 data "template_file" "example_template" {
-  template = "${file("${path.module}/template.tmpl")}"
+  template = "Computed Value: $${some_var}"
 
   vars {
     some_var = "${
@@ -27,7 +27,7 @@ data "template_file" "example_template" {
     }"
   }
 
-  #depends_on = [ "null_resource.some_resource_consuming_the_map"]
+  depends_on = [ "null_resource.some_resource_consuming_the_map"]
 }
 
 output "template_rendered" {

@@ -22,11 +22,11 @@ variable "hash_map_vars" {
 }
 
 output "hash_map_vars" {
-  value="${var.hash_map_vars}"
+  value="${join(", ", values(var.hash_map_vars))}"
 }
 
 output "module_hash_map" {
-  value="${module.some_module.hash_map}"
+  value="${join(", ", values(module.some_module.hash_map))}"
 }
 
 output "some_resource_consuming_the_map" {
